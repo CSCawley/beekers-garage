@@ -42,7 +42,6 @@ class PlayerSingleton {
         player.health = d[0].health;
         player.call("cCloseCefAndDestroyCam");
 
-
         const q1 = moneySingleton.loadUser(player);
         const q2 = characterSingleton.loadPlayerBody(player);
         const q3 = clothesSingleton.loadPlayerClothes(player);

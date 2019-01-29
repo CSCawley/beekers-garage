@@ -31,10 +31,12 @@ async function loadShops() {
 		new CheapCarDealership(d[i]);
 	}
 }
+
 loadShops();
 
 
 mp.events.addCommand({
+
 	'createcheapcardealership' : async (player, enteredprice) => {
 		if (player.adminLvl < 1) return;
 		const id = business.getCountOfBusinesses() + 1;

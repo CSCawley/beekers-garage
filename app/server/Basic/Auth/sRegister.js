@@ -100,12 +100,21 @@ class RegiserSingleton extends AbstractAuth {
 const regiserSingleton = new RegiserSingleton();
 
 mp.events.add({
-    "playerReady" : async (player) => {
+    
+    "playerJoin" : async (player) => {
         player.spawn(new mp.Vector3(3222, 5376, 20));
+        player.alpha = 0;
         player.dimension = 1001;
         playerSingleton.loadPlayerTemplate(player);
         player.call("cLogin-ShowLoginWindow");
     },
+
+    // "playerReady" : async (player) => {
+    //     player.spawn(new mp.Vector3(3222, 5376, 20));
+    //     player.dimension = 1001;
+    //     playerSingleton.loadPlayerTemplate(player);
+    //     player.call("cLogin-ShowLoginWindow");
+    // },
 
     "sRegister-TryGetCodeToRegister" : async (player, email) => {
         regiserSingleton.tryGetCodeToRegister(player, email);

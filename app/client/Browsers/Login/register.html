@@ -20,7 +20,7 @@
 				</span>
 			
 				<span v-if="mailChecked && nameChecked">
-					<input type="text" class="textinput" placeholder="Password" v-model="enteredPass1" :class="{ checked: passChecked }">
+					<input type="password" class="textinput" placeholder="Password" v-model="enteredPass1" :class="{ checked: passChecked }">
 					<input type="text" class="textinput" placeholder="Confirm password" v-model="enteredPass2" @input="verifyPass" :class="{ checked: passChecked }">
 				</span>
 			

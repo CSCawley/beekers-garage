@@ -95,14 +95,24 @@ mp.events.addCommand({
 		const price = Number(enteredprice.replace(/\D+/g,""));
 		const query1 = misc.query(`INSERT INTO business (id, title, coord, price) VALUES ('${id}', 'Clothing Shop', '${coord}', '${price}');`);
 		const query2 = misc.query(`INSERT INTO clothingshop (id) VALUES ('${id}');`);	
-		await Promise.all([query1, query2]);
+		try {
+			await Promise.all([query1, query2]);
+		}
+		catch(err){
+			player.outputChatBox("Something went wrong!");			
+		}
 		player.outputChatBox("!{#4caf50} Clothing shop successfully created!");
 	},	
 
 	'setchbuyerstandcoord' : async (player, id) => {
 		if (player.adminLvl < 1) return;
 		const coord = misc.getPlayerCoordJSON(player);
-		await misc.query(`UPDATE clothingshop SET buyerStandCoord = '${coord}' WHERE id = ${id}`);
+		try{
+			await misc.query(`UPDATE clothingshop SET buyerStandCoord = '${coord}' WHERE id = ${id}`);
+		}
+		catch(err){
+			player.outputChatBox("Something went wrong!");
+		}
 		player.notify(`~g~${i18n.get('basic', 'success', player.lang)}!`);
 	},
 
