@@ -7,7 +7,7 @@ conf.json
 bt.dat
 *.log
 /plugins/*
-/packages/*
+/packages/RP/*
 /client_packages/*
 /app/server/sMysql.js
 /app/server/sMailer.js

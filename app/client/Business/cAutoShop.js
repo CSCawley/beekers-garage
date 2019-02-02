@@ -20,10 +20,7 @@ mp.events.add(
 		//misc.prepareToCef();
 		//misc.openCef("package://RP/Business/AutoShop/Mechanic/Paint/paint.html");
 		//misc.injectCef(inject);
-		camera = mp.cameras.new("Cam", 103.13, 6626.423, 32.828, 0, 0, 0, 80);
-		camera.setActive(true);
-		camera.pointAtCoord(102.738, 6623.627, 31.829)
-		mp.game.cam.renderScriptCams(true, true, 20000000000000000000000000, false, false);
+		misc.createPointedCam(103.13, 6626.423, 32.828, 0, 0, 0, 80, 102.738, 6623.627, 31.829)
 		setTimeout(function(){ 
 			misc.destroyCam();
 		},3000)
