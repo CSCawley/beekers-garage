@@ -62,6 +62,16 @@ function createCam(x, y, z, rx, ry, rz, viewangle) {
 }
 exports.createCam = createCam;
 
+
+// POINTED CAMERA //
+function createPointedCam(x, y, z, rx, ry, rz, viewangle, px, py, pz) {
+	camera = mp.cameras.new("Cam", {x, y, z}, {x: rx, y: ry, z: rz}, viewangle);
+	camera.setActive(true);
+	camera.pointAtCoord(px, py, pz)
+	mp.game.cam.renderScriptCams(true, true, 20000000000000000000000000, false, false);
+}
+exports.createPointedCam = createPointedCam;
+
 function destroyCam() {
 	if (!camera) return;
 	camera.setActive(false);

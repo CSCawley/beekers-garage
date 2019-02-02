@@ -80,7 +80,7 @@ class VehicleSingleton {
 
 
 		mp.events.addCommand({	
-			'v' : (player, fullText, model) => {
+			'v' : (player, fullText, model, color1, color2) => {
 				if (player.adminLvl < 1) return;
 				if (!model) return player.notify("Model required");
 				const d = {
@@ -95,9 +95,12 @@ class VehicleSingleton {
 					ownerId: 0,
 					whoCanOpen: JSON.stringify([player.guid]),
 					factionName: '',
-					numberPlate: this.generateRandomNumberPlate(),
-					primaryColor: JSON.stringify([ misc.getRandomInt(0, 159), misc.getRandomInt(0, 159), misc.getRandomInt(0, 159) ]),
-					secondaryColor: JSON.stringify([ misc.getRandomInt(0, 159), misc.getRandomInt(0, 159), misc.getRandomInt(0, 159) ]),
+					numberPlate: 'SCUMBAG',
+					// numberPlate: this.generateRandomNumberPlate(),
+					primaryColor: color1,
+					secondaryColor: color2,
+					// primaryColor: JSON.stringify([ misc.getRandomInt(0, 159), misc.getRandomInt(0, 159), misc.getRandomInt(0, 159) ]),
+					// secondaryColor: JSON.stringify([ misc.getRandomInt(0, 159), misc.getRandomInt(0, 159), misc.getRandomInt(0, 159) ]),
 				}
 				const vehicle = new Vehicle(d);
 				player.putIntoVehicle(vehicle, -1);

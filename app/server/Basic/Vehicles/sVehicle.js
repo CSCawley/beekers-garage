@@ -25,9 +25,10 @@ class Vehicle {
 		vehicle.windowsOpened = [false, false, false, false];
 		vehicle.numberPlate = d.numberPlate;
 
-		const primaryColor = JSON.parse(d.primaryColor);
-		const secondaryColor = JSON.parse(d.secondaryColor);
-		vehicle.setColorRGB(primaryColor[0], primaryColor[1], primaryColor[2], secondaryColor[0], secondaryColor[1], secondaryColor[2]);
+		const primaryColor = d.primaryColor;
+		const secondaryColor = d.secondaryColor;
+		vehicle.setColor(primaryColor,secondaryColor)
+		// vehicle.setColorRGB(primaryColor[0], primaryColor[1], primaryColor[2], secondaryColor[0], secondaryColor[1], secondaryColor[2]);
 
 		vehicle.canOpen = function(player) {
 			if (player.dimension !== this.dimension) return false;
