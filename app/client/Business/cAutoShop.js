@@ -7,18 +7,18 @@ const player = mp.players.local;
 mp.events.add(
 {
 	"cAutoShop-ShowPaintMenu" : () => {
-		//misc.prepareToCef();
-		//misc.openCef("package://RP/Business/AutoShop/Mechanic/Paint/paint.html");
+		misc.prepareToCef();
+		misc.openCef("package://RP/Browsers/Business/AutoShop/Paint/paint.html");
 		//misc.injectCef(inject);
 		misc.createPointedCam(103.13, 6626.423, 32.828, 0, 0, 0, 80, 102.738, 6623.627, 31.829)
-		setTimeout(function(){ 
-			misc.destroyCam();
-		},3000)
+		// setTimeout(function(){ 
+		// 	misc.destroyCam();
+		// },3000)
 	},
 
 	"cAutoShop-ShowMechanicMenu" : () => {
 		//misc.prepareToCef();
-		//misc.openCef("package://RP/Business/AutoShop/Mechanic/Paint/paint.html");
+		//misc.openCef("package://RP/Browsers/Business/AutoShop/Mechanic/mechanic.html");
 		//misc.injectCef(inject);
 		misc.createPointedCam(110.48, 6631.676, 31.787, 0, 0, 0, 80, 109.888, 6626.924, 31.787)
 		setTimeout(function(){ 

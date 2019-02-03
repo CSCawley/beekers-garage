@@ -1,0 +1,11 @@
+.b3-close {
+  background: coral;
+  position: fixed;
+  right: 0;
+  top: 0;
+  width: 6vh;
+  height: 3vh;
+  font-size: 2vh;
+  transition: 0.3s;
+  z-index: 3;
+}

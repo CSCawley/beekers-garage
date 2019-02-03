@@ -1,27 +1,29 @@
 ﻿<html>
 	<meta charset="utf-8">
-	<link rel="stylesheet" href="business.css">
-	<script src="../vue.js"></script>
+	<link rel="stylesheet" href="paint.css">
+	<script src="../../../vue.js"></script>
 	<body>
 		<div id="app">
-
+			<div class="b3-close" id="close-button" @click="exit">X</div>
+			<h1>{{ titleText }}</h1>
 		</div>
 	</body>
 </html>
 
 
 <script>
-const app = new Vue({
-	el: '#app',
-	data: {
-
-	},
-	methods: {
-		changeCamRotation: function() {
-			mp.trigger("cChangeHeading", this.camRotation); 
+	const app = new Vue({
+		el: '#app',
+		data: {
+			titleText: "Paint Bay",
 		},
-		exit: function() {
-			mp.trigger("cCloseCefAndDestroyCam");
-		},
-});
+		methods: {
+			changeCamRotation: function() {
+				mp.trigger("cChangeHeading", this.camRotation); 
+			},
+			exit: function() {
+				mp.trigger("cCloseCefAndDestroyCam");
+			},
+		}
+	})
 </script>
