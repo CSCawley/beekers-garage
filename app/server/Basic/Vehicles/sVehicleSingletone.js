@@ -16,7 +16,11 @@ class VehicleSingleton {
 			},
 
 			"playerEnterVehicle" : (player, vehicle, seat) => {
-				if (seat === -1) player.call("cVehicle-setFuel", [vehicle.fuel, vehicle.fuelRate]);
+				if (seat === -1) {
+					player.call("cVehicle-setFuel", [vehicle.fuel, vehicle.fuelRate])
+				}else {
+					return
+				}
 			},
 			
 			"playerExitVehicle" : (player, vehicle, seat) => {
@@ -95,7 +99,7 @@ class VehicleSingleton {
 					ownerId: 0,
 					whoCanOpen: JSON.stringify([player.guid]),
 					factionName: '',
-					numberPlate: 'SCUMBAG',
+					numberPlate: 'SCUMBAG1',
 					// numberPlate: this.generateRandomNumberPlate(),
 					primaryColor: color1,
 					secondaryColor: color2,

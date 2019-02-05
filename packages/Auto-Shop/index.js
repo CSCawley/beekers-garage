@@ -27,6 +27,19 @@ class service {
   constructor() {
     this.garage = ''
     this.service = ''
+    this.primeColor = ''
+    this.secondaryColor = ''
+    this.mod = ''
+    this.engine = ''
+    this.horn = ''  
+    this.breaks = '' 
+    this.transmission = ''
+    this.suspension = ''
+    this.turbo = ''
+    this.xenon = ''
+    this.tint = ''
+    this.plate = ''
+    this.boost = ''
   }
 }
 // Menu Class. Tracks what Menu to deliver based on which garage slot the users car is in.
@@ -51,6 +64,16 @@ function colShapeEntered(player, shape){
   // Car is registered into the garage service
   if (shape == colshapeMechanic) {
     if (player.vehicle) {
+      service.engine = player.vehicle.getMod(11)
+      service.horn = player.vehicle.getMod(14)
+      service.breaks = player.vehicle.getMod(12)
+      service.transmission = player.vehicle.getMod(13)
+      service.suspension = player.vehicle.getMod(15)
+      service.turbo = player.vehicle.getMod(18)
+      service.xenon = player.vehicle.getMod(22)
+      service.tint = player.vehicle.getMod(46)
+      service.plate = player.vehicle.getMod(62)
+      service.boost = player.vehicle.getMod(40)
       player.notify(`Get out and see the mechanic.`)
       service.garage = 'ingarage'
     }
@@ -58,6 +81,9 @@ function colShapeEntered(player, shape){
   // Car is registered into the paint service
   if (shape == colshapePaint) {
     if (player.vehicle) {
+      // Collect details of the vehicle in the garage
+      service.primeColor = player.vehicle.getColorRGB(0)
+      service.secondaryColor = player.vehicle.getColorRGB(1)
       player.notify(`Get out and see the mechanic.`)
       service.garage = 'inpaint'
     }
@@ -103,11 +129,14 @@ mp.events.add("playerExitColshape", colShapeExited)
 mp.events.add({"sKeys-E" : (player) => {
     if (colshapeloc.location == 'menuactive') {
       if (menu.paint == true) {
-        player.call("cAutoShop-ShowPaintMenu")
+        player.call("cAutoShop-ShowPaintMenu", service)
       }
-      if (menu.garage == true) {
+      else if (menu.garage == true) {
         //player.notify(`Those custom parts aren't in yet.`)
-        player.call("cAutoShop-ShowMechanicMenu")
+        player.call("cAutoShop-ShowMechanicMenu", service)
+      }
+      else {
+        player.call("cAutoShop-ShowDevMenu")
       }
     }
     else {

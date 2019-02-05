@@ -2,14 +2,14 @@
 
 const misc = require('../cMisc');
 const player = mp.players.local;
-
+const vehicle = player.vehicle
 
 mp.events.add(
 {
-	"cAutoShop-ShowPaintMenu" : () => {
+	"cAutoShop-ShowPaintMenu" : (service) => {
 		misc.prepareToCef();
 		misc.openCef("package://RP/Browsers/Business/AutoShop/Paint/paint.html");
-		//misc.injectCef(inject);
+		misc.injectCef(service);
 		misc.createPointedCam(103.13, 6626.423, 32.828, 0, 0, 0, 80, 102.738, 6623.627, 31.829)
 		// setTimeout(function(){ 
 		// 	misc.destroyCam();
@@ -26,7 +26,16 @@ mp.events.add(
 		},3000)
 	},
 
-	"cAutoShop-SetVehicleColor" : (col1, col2) => vehicle.setColours(col1, col2)
+	"cAutoShop-ShowDevMenu" : () => {
+		misc.prepareToCef()
+		misc.openCef("package://RP/Browsers/Business/AutoShop/Paint/paint.html")
+	},
+
+	"cMisc-CallServerEvent" : (eventName, id, price) => mp.events.callRemote(eventName, id, price),
+	
+
+
+	//"cAutoShop-SetVehicleColor" : (col1, col2) => vehicle.setColours(col1, col2)
 });
 
 // RAGE Object Declarations
