@@ -4,7 +4,11 @@
 	<script src="../vue.js"></script>
 	<body>
 		<div id="app">
-			
+			<div class="b3-close" id="close-button" @click="exit">X</div>
+			<div class="b3-service" id="sp0-button" @click="sp0">No Spoiler</div>
+			<div class="b3-service" id="sp1-button" @click="sp1">Spoiler 1</div>
+			<div class="b3-service" id="sp2-button" @click="sp2">Spoiler 2</div>
+			<div class="b3-service" id="sp3-button" @click="sp3">Spoiler 3</div>
 		</div>
 	</body>
 </html>
@@ -22,6 +26,15 @@ const app = new Vue({
 		},
 		exit: function() {
 			mp.trigger("cCloseCefAndDestroyCam");
+		},
+		sp0: function() {
+			mp.trigger("cAutoShop-CallServerEvent", sAutoShop-Mod, 0, -1);
+		},
+		sp1: function() {
+			mp.trigger("cAutoShop-CallServerEvent", sAutoShop-Mod, 0, 0);
+		},
+		sp2: function() {
+			mp.trigger("cAutoShop-CallServerEvent", sAutoShop-Mod, 0, 1);
 		},
 });
 </script>

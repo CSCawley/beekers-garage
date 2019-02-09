@@ -27,19 +27,19 @@ class service {
   constructor() {
     this.garage = ''
     this.service = ''
-    this.primeColor = ''
-    this.secondaryColor = ''
-    this.mod = ''
-    this.engine = ''
-    this.horn = ''  
-    this.breaks = '' 
-    this.transmission = ''
-    this.suspension = ''
-    this.turbo = ''
-    this.xenon = ''
-    this.tint = ''
-    this.plate = ''
-    this.boost = ''
+    this.primeColor = -1
+    this.secondaryColor = -1 
+    this.mod = -1
+    this.engine = -1
+    this.horn = -1
+    this.breaks = -1 
+    this.transmission = -1
+    this.suspension = -1
+    this.turbo = -1
+    this.xenon = -1
+    this.tint = -1
+    this.plate = -1
+    this.boost = -1
   }
 }
 // Menu Class. Tracks what Menu to deliver based on which garage slot the users car is in.
@@ -74,6 +74,8 @@ function colShapeEntered(player, shape){
       service.tint = player.vehicle.getMod(46)
       service.plate = player.vehicle.getMod(62)
       service.boost = player.vehicle.getMod(40)
+      const str = `boost: ${service.boost} Turbo: ${service.turbo}`
+      player.notify(str)
       player.notify(`Get out and see the mechanic.`)
       service.garage = 'ingarage'
     }
@@ -126,14 +128,21 @@ function colShapeExited(player, shape) {
 // RAGE Event Declarations
 mp.events.add("playerEnterColshape", colShapeEntered)
 mp.events.add("playerExitColshape", colShapeExited)
+mp.events.add({ 
+  "sAutoShop-Mod" : ( a, b ) => {
+    player.vehicle.setMod(parseInt(a), parseInt(b))
+  }
+})
 mp.events.add({"sKeys-E" : (player) => {
     if (colshapeloc.location == 'menuactive') {
       if (menu.paint == true) {
-        player.call("cAutoShop-ShowPaintMenu", service)
+      //player.call("cAutoShop-ShowPaintMenu", service)
       }
       else if (menu.garage == true) {
-        //player.notify(`Those custom parts aren't in yet.`)
-        player.call("cAutoShop-ShowMechanicMenu", service)
+      //player.notify(`Those custom parts aren't in yet.`)
+        const servicevehicle = mp.vehicles.forEachInRange(111.08, 6626.702, 31.444, 2, 0, 70);
+        player.notify(`${ servicevehicle }`)
+        player.call("cAutoShop-ShowMechanicMenu")
       }
       else {
         player.call("cAutoShop-ShowDevMenu")
@@ -143,4 +152,15 @@ mp.events.add({"sKeys-E" : (player) => {
       return
     }
   }
+})
+
+mp.events.addCommand('mod', (player, fullText, a , b) => {
+  player.vehicle.setMod(parseInt(a), parseInt(b));
+});
+mp.events.addCommand('modtest', () => {
+  mp.vehicles.forEachInRange(new mp.Vector3(111.08, 6626.702, 31.444), 3,
+    (vehicle) => {
+      vehicle.setMod(0,1)
+    }
+  );
 })

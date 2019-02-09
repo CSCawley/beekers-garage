@@ -8,32 +8,59 @@
 
 			<div class="b3-close" id="close-button" @click="exit">X</div>
 			<h1>{{ titleText }}</h1>
-
-			<div style="position:absolute; left:280px; top:10px;">
+			<h1>{{ prime }}</h1>
+			<h1>{{ second }}</h1>
+			<div>
 				toHEXString = <span id="hex-str"></span><br />
 				toRGBString = <span id="rgb-str"></span><br />
 				R, G, B = <span id="rgb"></span><br />
 				H, S, V = <span id="hsv"></span>
 			</div>
-			<input class="jscolor {onFineChange:'update(this)'}" value="ffcc00">
+			<input class="jscolor {onFineChange:'prime(this)'}" value="ffcc00">
+			<div>
+				toHEXString = <span id="hex-str2"></span><br />
+				toRGBString = <span id="rgb-str2"></span><br />
+				R, G, B = <span id="rgb2"></span><br />
+				H, S, V = <span id="hsv2"></span>
+			</div>
+			<input class="jscolor {onFineChange:'second(this)'}" value="ffcc00">
 		</div>
 	</body>
 </html>
 
 <script>
+	
+	class service {
+		constructor() {
+			this.prime = ""
+			this.second = ""
+		}
+	}
 
-	function update(picker) {
+	function prime(picker) {
 		document.getElementById('hex-str').innerHTML = picker.toHEXString();
 		document.getElementById('rgb-str').innerHTML = picker.toRGBString();
 		document.getElementById('rgb').innerHTML =
 			Math.round(picker.rgb[0]) + ', ' +
 			Math.round(picker.rgb[1]) + ', ' +
 			Math.round(picker.rgb[2]);
+		service.prime = 
+			Math.round(picker.rgb[0]) + ', ' +
+			Math.round(picker.rgb[1]) + ', ' +
+			Math.round(picker.rgb[2]);
+	}
 
-		document.getElementById('hsv').innerHTML =
-			Math.round(picker.hsv[0]) + '&deg;, ' +
-			Math.round(picker.hsv[1]) + '%, ' +
-			Math.round(picker.hsv[2]) + '%';
+	function second(picker) {
+		document.getElementById('hex-str2').innerHTML = picker.toHEXString();
+		document.getElementById('rgb-str2').innerHTML = picker.toRGBString();
+		document.getElementById('rgb2').innerHTML =
+			Math.round(picker.rgb[0]) + ', ' +
+			Math.round(picker.rgb[1]) + ', ' +
+			Math.round(picker.rgb[2]);
+			service.second = 
+			Math.round(picker.rgb[0]) + ', ' +
+			Math.round(picker.rgb[1]) + ', ' +
+			Math.round(picker.rgb[2]);
 	}
 
 	const app = new Vue({
@@ -43,9 +70,6 @@
 			prime: service.primeColor,
 			second: service.secondaryColor,
 		},
-
-
-
 		methods: {
 			changeCamRotation: function() {
 				mp.trigger("cChangeHeading", this.camRotation); 

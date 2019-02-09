@@ -19,6 +19,15 @@
   z-index: 2;
 }
 
+.b3-service {
+  background: rgb(39, 218, 98);
+  width: 6vh;
+  height: 3vh;
+  font-size: 2vh;
+  transition: 0.3s;
+  z-index: 2;
+}
+
 .b3-close:hover {
   background: tomato;
 }
