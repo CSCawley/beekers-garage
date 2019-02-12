@@ -1,14 +1,41 @@
 ﻿<html>
+	<head>
 	<meta charset="utf-8">
 	<link rel="stylesheet" href="mechanic.css">
+	<script>
+		function getMods() {
+			mp.trigger("cAutoShop-GetModClass" => {
+				alert(service.engine)
+			})
+		}
+	</script>
 	<script src="../vue.js"></script>
+	</head>
 	<body>
-		<div id="app">
+		<div id="service">
 			<div class="b3-close" id="close-button" @click="exit">X</div>
 			<div class="b3-service" id="sp0-button" @click="sp0">No Spoiler</div>
 			<div class="b3-service" id="sp1-button" @click="sp1">Spoiler 1</div>
 			<div class="b3-service" id="sp2-button" @click="sp2">Spoiler 2</div>
 			<div class="b3-service" id="sp3-button" @click="sp3">Spoiler 3</div>
+			<div class="b1-service">
+				<div>
+					<div class="b1-summ">{{ garage }}</div>
+					<div class="b1-summ-info">{{ service }}</div>
+				</div>
+				<div>
+					<div class="b1-summ">{{ primeColor }}</div>
+					<div class="b1-summ-info">{{ secondaryColor }}</div>
+				</div>
+				<div>
+					<div class="b1-summ">{{ mod }}</div>
+					<div class="b1-summ-info">{{ engine }}</div>
+				</div>
+				<div v-if="fine">
+					<div class="b1-summ">{{ horn }}</div>
+					<div class="b1-summ-info">{{ breaks }}</div>
+				</div>
+			</div>
 		</div>
 	</body>
 </html>
@@ -16,19 +43,37 @@
 
 <script>
 const app = new Vue({
-	el: '#app',
+	el: '#service',
 	data: {
-
+		garage: '',
+		service: '',
+		primeColor: -1,
+		secondaryColor: -1, 
+		mod: -1,
+		engine: -1,
+		horn: -1,
+		breaks: -1, 
+		transmission: -1,
+		suspension: -1,
+		turbo: -1,
+		xenon: -1,
+		tint: -1,
+		plate: -1,
+		boost: -1,
+		spoiler: -1,
+		fbumper: -1,
+		rbumper: -1,
+		skirt: -1,
+		armor: -1,
+		hydraulics: -1,
+		wheels: -1
 	},
 	methods: {
 		changeCamRotation: function() {
 			mp.trigger("cChangeHeading", this.camRotation); 
 		},
-		exit: function() {
-			mp.trigger("cCloseCefAndDestroyCam");
-		},
 		sp0: function() {
-			mp.trigger("cAutoShop-CallServerEvent", sAutoShop-Mod, 0, -1);
+			mp.trigger("cAutoShop-CallServerEvent", z-Mod, 0, -1);
 		},
 		sp1: function() {
 			mp.trigger("cAutoShop-CallServerEvent", sAutoShop-Mod, 0, 0);
@@ -36,5 +81,9 @@ const app = new Vue({
 		sp2: function() {
 			mp.trigger("cAutoShop-CallServerEvent", sAutoShop-Mod, 0, 1);
 		},
+		exit: function() {
+			mp.trigger("cCloseCefAndDestroyCam");
+		}
+	}
 });
 </script>

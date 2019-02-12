@@ -16,10 +16,10 @@ mp.events.add(
 		// },3000)
 	},
 
-	"cAutoShop-ShowMechanicMenu" : () => {
+	"cAutoShop-ShowMechanicMenu" : (execute) => {
 		misc.prepareToCef();
 		misc.openCef("package://RP/Browsers/Business/AutoShop/Mechanic/mechanic.html");
-		//misc.injectCef(inject);
+		misc.injectCef(execute);
 		misc.createPointedCam(110.48, 6631.676, 31.787, 0, 0, 0, 80, 109.888, 6626.924, 31.787)
 		//setTimeout(function(){ 
 		//	misc.destroyCam();
@@ -31,10 +31,11 @@ mp.events.add(
 		misc.openCef("package://RP/Browsers/Business/AutoShop/Paint/paint.html")
 	},
 
-	"cAutoShop-CallServerEvent" : (eventName, a, b) => mp.events.callRemote(eventName, a, b),
-	
+	"cAutoShop-CallServerEvent" : (eventName, a, b) => {
+		mp.events.callRemote(eventName, a, b)
+	},
 
-
+	"cAutoShop-GetModClass" : () => mp.events.callRemote(getMods)
 	//"cAutoShop-SetVehicleColor" : (col1, col2) => vehicle.setColours(col1, col2)
 });
 

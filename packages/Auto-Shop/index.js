@@ -23,26 +23,30 @@ mp.blips.new(524, new mp.Vector3(111.08, 6626.702, 31.444),
   scale: 0.75,
 })
 // Service Class. Tracks where your car is.
-class service {
-  constructor() {
-    this.garage = ''
-    this.service = ''
-    this.primeColor = -1
-    this.secondaryColor = -1 
-    this.mod = -1
-    this.engine = -1
-    this.horn = -1
-    this.breaks = -1 
-    this.transmission = -1
-    this.suspension = -1
-    this.turbo = -1
-    this.xenon = -1
-    this.tint = -1
-    this.plate = -1
-    this.boost = -1
-  }
+let service = {
+  garage: '',
+  service: '',
+  primeColor: -1,
+  secondaryColor: -1, 
+  mod: -1,
+  engine: -1,
+  horn: -1,
+  breaks: -1, 
+  transmission: -1,
+  suspension: -1,
+  turbo: -1,
+  xenon: -1,
+  tint: -1,
+  plate: -1,
+  boost: -1,
+  spoiler: -1,
+  fbumper: -1,
+  rbumper: -1,
+  skirt: -1,
+  armor: -1,
+  hydraulics: -1,
+  wheels: -1
 }
-// Menu Class. Tracks what Menu to deliver based on which garage slot the users car is in.
 class menu {
   constructor() {
     this.garage = false
@@ -125,12 +129,24 @@ function colShapeExited(player, shape) {
   }
 }
 
+// Get Current Service Class
+
+function getCurrentService() {
+  let garageservice = JSON.stringify(service)
+  return garageservice
+}
+
 // RAGE Event Declarations
 mp.events.add("playerEnterColshape", colShapeEntered)
 mp.events.add("playerExitColshape", colShapeExited)
+mp.events.add("getMods", getCurrentService)
 mp.events.add({ 
   "sAutoShop-Mod" : ( a, b ) => {
-    player.vehicle.setMod(parseInt(a), parseInt(b))
+    mp.vehicles.forEachInRange(new mp.Vector3(111.08, 6626.702, 31.444), 3,
+      (vehicle) => {
+        vehicle.setMod(a,b)
+      }
+  );
   }
 })
 mp.events.add({"sKeys-E" : (player) => {
@@ -140,9 +156,8 @@ mp.events.add({"sKeys-E" : (player) => {
       }
       else if (menu.garage == true) {
       //player.notify(`Those custom parts aren't in yet.`)
-        const servicevehicle = mp.vehicles.forEachInRange(111.08, 6626.702, 31.444, 2, 0, 70);
-        player.notify(`${ servicevehicle }`)
-        player.call("cAutoShop-ShowMechanicMenu")
+        const execute = JSON.stringify(service)
+        player.call("cAutoShop-ShowMechanicMenu", execute)
       }
       else {
         player.call("cAutoShop-ShowDevMenu")
@@ -157,10 +172,21 @@ mp.events.add({"sKeys-E" : (player) => {
 mp.events.addCommand('mod', (player, fullText, a , b) => {
   player.vehicle.setMod(parseInt(a), parseInt(b));
 });
+mp.events.addCommand('getmod', (player, fullText, a) => {
+  let modgot = player.vehicle.getMod(parseInt(a));
+  player.notify(`${modgot}`)
+});
 mp.events.addCommand('modtest', () => {
   mp.vehicles.forEachInRange(new mp.Vector3(111.08, 6626.702, 31.444), 3,
     (vehicle) => {
       vehicle.setMod(0,1)
+    }
+  );
+})
+mp.events.addCommand('modcar', ( fulltext, a , b ) => {
+  mp.vehicles.forEachInRange(new mp.Vector3(111.08, 6626.702, 31.444), 3,
+    (vehicle) => {
+      vehicle.setMod(parseInt(a), parseInt(b))
     }
   );
 })
