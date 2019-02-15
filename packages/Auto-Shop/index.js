@@ -167,26 +167,91 @@ mp.events.add({"sKeys-E" : (player) => {
       return
     }
   }
-})
-
-mp.events.addCommand('mod', (player, fullText, a , b) => {
+});
+//
+mp.events.addCommand('mod', (player, a , b) => {
   player.vehicle.setMod(parseInt(a), parseInt(b));
 });
+//
+mp.events.addCommand('color', (player, a, b) => {
+  player.vehicle.setColor(parseInt(a), parseInt(b));
+});
+// NOT A FUNCTION
+mp.events.addCommand('modcolor1', (player, a , b) => {
+  player.vehicle.setModColor1(parseInt(a), parseInt(b), 0);
+});
+// NOT A FUNCTION
+mp.events.addCommand('modcolor2', (player, a , b) => {
+  player.vehicle.setModColor2(parseInt(a), parseInt(b));
+});
+//
+mp.events.addCommand('ExtraColor', (player, a , b) => {
+  player.vehicle.setExtraColours(parseInt(a), parseInt(b));
+});
+//
+mp.events.addCommand('getpaint0', (player) => {
+  let paintgot = player.vehicle.getPaint(0);
+  player.notify(`${paintgot}`);
+});
+//
+mp.events.addCommand('getpaint1', (player) => {
+  let paintgot = player.vehicle.getPaint(1);
+  player.notify(`${paintgot}`);
+});
+//
+mp.events.addCommand('setpaint', (player, a , b) => {
+  player.vehicle.setPaint(parseInt(a), parseInt(b));
+});
+// Vehicle::setModColor1
+// paintType: int
+// color: int
+// p3: int
+mp.events.addCommand('setModColor1', (player, paintType, color, p3) => {
+  player.vehicle.setModColor1(parseInt(paintType), parseInt(color), parseInt(p3));
+})
+
+mp.events.addCommand('setModColor2', (player, paintType, color, p3) => {
+  player.vehicle.setModColor2(parseInt(paintType), parseInt(color), parseInt(p3));
+})
+//
 mp.events.addCommand('getmod', (player, fullText, a) => {
   let modgot = player.vehicle.getMod(parseInt(a));
-  player.notify(`${modgot}`)
+  player.notify(`${modgot}`);
 });
+//
 mp.events.addCommand('modtest', () => {
   mp.vehicles.forEachInRange(new mp.Vector3(111.08, 6626.702, 31.444), 3,
     (vehicle) => {
-      vehicle.setMod(0,1)
+      vehicle.setMod(0,1);
     }
   );
 })
+//
 mp.events.addCommand('modcar', ( fulltext, a , b ) => {
   mp.vehicles.forEachInRange(new mp.Vector3(111.08, 6626.702, 31.444), 3,
     (vehicle) => {
-      vehicle.setMod(parseInt(a), parseInt(b))
+      vehicle.setMod(parseInt(a), parseInt(b));
     }
   );
 })
+// Mod My Car
+mp.events.addCommand('mc', ( player, a , b ) => {
+  if(player.vehicle) {
+    player.vehicle.setMod(parseInt(a), parseInt(b));
+  }
+})
+// ??
+mp.events.addCommand('pearl', (player, fulltext, pearl) => {
+  if(player.vehicle) {
+      player.vehicle.pearlescentColor = parseInt(pearl);
+  }
+});
+// Plate: Text string Alpha Numeric
+mp.events.addCommand('licenseplate', (player, _, plate) => {
+  if(player.vehicle) {
+      player.vehicle.numberPlate = plate;
+  }
+});
+
+// Air Force Base x: -2349.024, y: 3269.134, z: 32.811, rot: 315.41
+

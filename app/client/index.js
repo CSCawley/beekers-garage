@@ -3,6 +3,7 @@ require('./Basic/cLogin');
 require('./Basic/cMoney');
 require('./Character/cCharacterCreator');
 require('./Business/cBusiness');
+require('./Business/cCEOOffice');
 require('./Business/cCarDealership');
 require('./Business/cClothingShop');
 require('./Business/cBarberShop');
