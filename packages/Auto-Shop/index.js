@@ -23,25 +23,31 @@ mp.blips.new(524, new mp.Vector3(111.08, 6626.702, 31.444),
   scale: 0.75,
 })
 // Service Class. Tracks where your car is.
-class service {
-  constructor() {
-    this.garage = ''
-    this.service = ''
-    this.primeColor = -1
-    this.secondaryColor = -1 
-    this.mod = -1
-    this.engine = -1
-    this.horn = -1
-    this.breaks = -1 
-    this.transmission = -1
-    this.suspension = -1
-    this.turbo = -1
-    this.xenon = -1
-    this.tint = -1
-    this.plate = -1
-    this.boost = -1
-  }
+let service = {
+  garage: '',
+  service: '',
+  primeColor: -1,
+  secondaryColor: -1, 
+  mod: -1,
+  engine: -1,
+  horn: -1,
+  breaks: -1, 
+  transmission: -1,
+  suspension: -1,
+  turbo: -1,
+  xenon: -1,
+  tint: -1,
+  plate: -1,
+  boost: -1,
+  spoiler: -1,
+  fbumper: -1,
+  rbumper: -1,
+  skirt: -1,
+  armor: -1,
+  hydraulics: -1,
+  wheels: -1
 }
+
 // Menu Class. Tracks what Menu to deliver based on which garage slot the users car is in.
 class menu {
   constructor() {
@@ -74,6 +80,13 @@ function colShapeEntered(player, shape){
       service.tint = player.vehicle.getMod(46)
       service.plate = player.vehicle.getMod(62)
       service.boost = player.vehicle.getMod(40)
+      service.spoiler = player.vehicle.getMod(0)
+      service.fbumper = player.vehicle.getMod(1)
+      service.rbumper = player.vehicle.getMod(2)
+      service.skirt = player.vehicle.getMod(3)
+      service.armor = player.vehicle.getMod(16)
+      service.hydraulics = player.vehicle.getMod(38)
+      service.wheels = player.vehicle.getMod(23)
       const str = `boost: ${service.boost} Turbo: ${service.turbo}`
       player.notify(str)
       player.notify(`Get out and see the mechanic.`)
@@ -139,10 +152,29 @@ mp.events.add({"sKeys-E" : (player) => {
       //player.call("cAutoShop-ShowPaintMenu", service)
       }
       else if (menu.garage == true) {
-      //player.notify(`Those custom parts aren't in yet.`)
-        const servicevehicle = mp.vehicles.forEachInRange(111.08, 6626.702, 31.444, 2, 0, 70);
-        player.notify(`${ servicevehicle }`)
-        player.call("cAutoShop-ShowMechanicMenu")
+        //player.notify(`Those custom parts aren't in yet.`)
+        //const servicevehicle = mp.vehicles.forEachInRange(111.08, 6626.702, 31.444, 2, 0, 70);
+        //player.notify(`${ servicevehicle }`)
+        let execute = `app.engine = ${service.engine};`
+        execute += `app.horn = ${service.horn};`
+        execute += `app.breaks = ${service.breaks};`
+        execute += `app.transmission = ${service.transmission};`
+        execute += `app.suspension = ${service.suspension};`
+        execute += `app.turbo = ${service.turbo};`
+        execute += `app.xenon = ${service.xenon};`
+        execute += `app.tint = ${service.tint};`
+        execute += `app.plate = ${service.plate};`
+        execute += `app.boost = ${service.boost};`
+        execute += `app.spoiler = ${service.spoiler};`
+        execute += `app.fbumper = ${service.fbumper};`
+        execute += `app.rbumper = ${service.rbumper};`
+        execute += `app.skirt = ${service.skirt};`
+        execute += `app.armor = ${service.armor};`
+        execute += `app.hyrdraulics = ${service.hydraulics};`
+        execute += `app.wheels = ${service.wheels};`
+        //const execute = JSON.stringify(service)
+
+        player.call("cAutoShop-ShowMechanicMenu", [execute])
       }
       else {
         player.call("cAutoShop-ShowDevMenu")
