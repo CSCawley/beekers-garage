@@ -4,15 +4,32 @@
 	<script src="../../../vue.js"></script>
 	<body>
 		<div id="app">
-			<div class="b3-close" id="close-button" @click="exit">X</div>
-			<div class="b1-service">
-				<div>
-					<div class="b1-summ-info">{{ engine }}</div>
-				</div>
-				<div>
-					<div class="b1-summ">{{ horn }}</div>
-					<div class="b1-summ-info">{{ breaks }}</div>
-					<div class="b1-summ-info">{{ wheels }}</div>
+			<div class="ma-close" id="close-button" @click="exit">X</div>
+			<div class="ma-service">
+				<div class="m1-tray-wrapper">
+					<div class="m1-tuning-parts">
+						<div class="m1-tray">{{ engine }}</div>
+						<div class="m1-tray">{{ breaks }}</div>
+						<div class="m1-tray">{{ transmission }}</div>
+						<div class="m1-tray">{{ suspension }}</div>
+						<div class="m1-tray">{{ turbo }}</div>
+						<div class="m1-tray">{{ boost }}</div>
+					</div>
+					<div class="m1-custom-parts">
+						<div class="m1-tray">{{ horn }}</div>
+						<div class="m1-tray">{{ xenon }}</div>
+						<div class="m1-tray">{{ tint }}</div>
+						<div class="m1-tray">{{ plate }}</div>
+						<div class="m1-tray">{{ spoiler }}</div>
+						<div class="m1-tray">{{ fbumper }}</div>
+						<div class="m1-tray">{{ rbumper }}</div>
+						<div class="m1-tray">{{ skirt }}</div>
+						<div class="m1-tray">{{ armor }}</div>
+						<div class="m1-tray">{{ hydraulics }}</div>
+						<div class="m1-tray">{{ wheels }}</div>					
+					</div>
+					<div class="m1-garage-services">
+					</div>
 				</div>
 			</div>
 		</div>
