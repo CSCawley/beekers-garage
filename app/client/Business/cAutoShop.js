@@ -58,10 +58,11 @@ mp.events.add(
 		misc.openCef("package://RP/Browsers/Business/AutoShop/Paint/paint.html")
 	},
 
-	"cAutoShop-CallServerEvent" : (eventName, a, b) => mp.events.callRemote(eventName, a, b),
-	
+	"cAutoShop-CallServerEvent" : (eventName, a, b) => {
+		mp.events.callRemote(eventName, a, b)
+	},
 
-
+	"cAutoShop-GetModClass" : () => mp.events.callRemote(getMods)
 	//"cAutoShop-SetVehicleColor" : (col1, col2) => vehicle.setColours(col1, col2)
 });
 

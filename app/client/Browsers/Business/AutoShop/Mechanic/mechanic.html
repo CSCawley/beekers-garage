@@ -1,9 +1,10 @@
 ﻿<html>
+	<head>
 	<meta charset="utf-8">
 	<link rel="stylesheet" href="mechanic.css">
 	<script src="../../../vue.js"></script>
 	<body>
-		<div id="app">
+		<div id="service">
 			<div class="b3-close" id="close-button" @click="exit">X</div>
 			<div class="b1-service">
 				<div>
@@ -23,7 +24,7 @@
 
 <script>
 const app = new Vue({
-	el: '#app',
+	el: '#service',
 	data: {
 		engine: -1,
 		horn: -1,
