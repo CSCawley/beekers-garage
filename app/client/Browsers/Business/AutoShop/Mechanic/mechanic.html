@@ -2,34 +2,22 @@
 	<head>
 	<meta charset="utf-8">
 	<link rel="stylesheet" href="mechanic.css">
-	<script src="../vue.js"></script>
-	</head>
+	<script src="../../../vue.js"></script>
 	<body>
 		<div id="service">
 			<div class="b3-close" id="close-button" @click="exit">X</div>
-			<div class="b3-service" id="sp0-button" @click="sp0">No Spoiler</div>
-			<div class="b3-service" id="sp1-button" @click="sp1">Spoiler 1</div>
-			<div class="b3-service" id="sp2-button" @click="sp2">Spoiler 2</div>
-			<div class="b3-service" id="sp3-button" @click="sp3">Spoiler 3</div>
 			<div class="b1-service">
 				<div>
-					<div class="b1-summ">{{ garage }}</div>
-					<div class="b1-summ-info">{{ service }}</div>
-				</div>
-				<div>
-					<div class="b1-summ">{{ primeColor }}</div>
-					<div class="b1-summ-info">{{ secondaryColor }}</div>
-				</div>
-				<div>
-					<div class="b1-summ">{{ mod }}</div>
 					<div class="b1-summ-info">{{ engine }}</div>
 				</div>
-				<div v-if="fine">
+				<div>
 					<div class="b1-summ">{{ horn }}</div>
 					<div class="b1-summ-info">{{ breaks }}</div>
+					<div class="b1-summ-info">{{ wheels }}</div>
 				</div>
 			</div>
 		</div>
+
 	</body>
 </html>
 
@@ -38,11 +26,6 @@
 const app = new Vue({
 	el: '#service',
 	data: {
-		garage: '',
-		service: '',
-		primeColor: -1,
-		secondaryColor: -1, 
-		mod: -1,
 		engine: -1,
 		horn: -1,
 		breaks: -1, 

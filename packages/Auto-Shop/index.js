@@ -47,6 +47,8 @@ let service = {
   hydraulics: -1,
   wheels: -1
 }
+
+// Menu Class. Tracks what Menu to deliver based on which garage slot the users car is in.
 class menu {
   constructor() {
     this.garage = false
@@ -78,6 +80,13 @@ function colShapeEntered(player, shape){
       service.tint = player.vehicle.getMod(46)
       service.plate = player.vehicle.getMod(62)
       service.boost = player.vehicle.getMod(40)
+      service.spoiler = player.vehicle.getMod(0)
+      service.fbumper = player.vehicle.getMod(1)
+      service.rbumper = player.vehicle.getMod(2)
+      service.skirt = player.vehicle.getMod(3)
+      service.armor = player.vehicle.getMod(16)
+      service.hydraulics = player.vehicle.getMod(38)
+      service.wheels = player.vehicle.getMod(23)
       const str = `boost: ${service.boost} Turbo: ${service.turbo}`
       player.notify(str)
       player.notify(`Get out and see the mechanic.`)
@@ -155,9 +164,29 @@ mp.events.add({"sKeys-E" : (player) => {
       //player.call("cAutoShop-ShowPaintMenu", service)
       }
       else if (menu.garage == true) {
-      //player.notify(`Those custom parts aren't in yet.`)
-        const execute = JSON.stringify(service)
-        player.call("cAutoShop-ShowMechanicMenu", execute)
+        //player.notify(`Those custom parts aren't in yet.`)
+        //const servicevehicle = mp.vehicles.forEachInRange(111.08, 6626.702, 31.444, 2, 0, 70);
+        //player.notify(`${ servicevehicle }`)
+        let execute = `app.engine = ${service.engine};`
+        execute += `app.horn = ${service.horn};`
+        execute += `app.breaks = ${service.breaks};`
+        execute += `app.transmission = ${service.transmission};`
+        execute += `app.suspension = ${service.suspension};`
+        execute += `app.turbo = ${service.turbo};`
+        execute += `app.xenon = ${service.xenon};`
+        execute += `app.tint = ${service.tint};`
+        execute += `app.plate = ${service.plate};`
+        execute += `app.boost = ${service.boost};`
+        execute += `app.spoiler = ${service.spoiler};`
+        execute += `app.fbumper = ${service.fbumper};`
+        execute += `app.rbumper = ${service.rbumper};`
+        execute += `app.skirt = ${service.skirt};`
+        execute += `app.armor = ${service.armor};`
+        execute += `app.hyrdraulics = ${service.hydraulics};`
+        execute += `app.wheels = ${service.wheels};`
+        //const execute = JSON.stringify(service)
+
+        player.call("cAutoShop-ShowMechanicMenu", [execute])
       }
       else {
         player.call("cAutoShop-ShowDevMenu")
@@ -254,4 +283,3 @@ mp.events.addCommand('licenseplate', (player, _, plate) => {
 });
 
 // Air Force Base x: -2349.024, y: 3269.134, z: 32.811, rot: 315.41
-
