@@ -3,45 +3,46 @@
 	<meta charset="utf-8">
 	<link rel="stylesheet" href="mechanic.css">
 	<script src="../../../vue.js"></script>
+	</head>
 	<body>
 		<div id="app">
 			<div class="ma-close" id="close-button" @click="exit">X</div>
-			<div class="ma-service">
-				<div class="m1-tray-wrapper">
-					<div class="m1-tuning-parts">
-						<div class="m1-tray">{{ engine }}</div>
-						<div class="m1-tray">{{ breaks }}</div>
-						<div class="m1-tray">{{ transmission }}</div>
-						<div class="m1-tray">{{ suspension }}</div>
-						<div class="m1-tray">{{ turbo }}</div>
-						<div class="m1-tray">{{ boost }}</div>
-					</div>
-					<div class="m1-custom-parts">
-						<div class="m1-tray">{{ horn }}</div>
-						<div class="m1-tray">{{ xenon }}</div>
-						<div class="m1-tray">{{ tint }}</div>
-						<div class="m1-tray">{{ plate }}</div>
-						<div class="m1-tray">{{ spoiler }}</div>
-						<div class="m1-tray">{{ fbumper }}</div>
-						<div class="m1-tray">{{ rbumper }}</div>
-						<div class="m1-tray">{{ skirt }}</div>
-						<div class="m1-tray">{{ armor }}</div>
-						<div class="m1-tray">{{ hydraulics }}</div>
-						<div class="m1-tray">{{ wheels }}</div>					
-					</div>
-					<div class="m1-garage-services">
+				<div class="ma-service-show">
+					<div class="m1-tray-wrapper">
+						<div class="m1-tuning-parts">
+							<div class="m1-tray" @click="engineA">{{ engine }}</div>
+							<div class="m1-tray">{{ breaks }}</div>
+							<div class="m1-tray">{{ transmission }}</div>
+							<div class="m1-tray">{{ suspension }}</div>
+							<div class="m1-tray">{{ turbo }}</div>
+							<div class="m1-tray">{{ boost }}</div>
+						</div>
+						<div class="m1-custom-parts">
+							<div class="m1-tray">{{ horn }}</div>
+							<div class="m1-tray">{{ xenon }}</div>
+							<div class="m1-tray">{{ tint }}</div>
+							<div class="m1-tray">{{ plate }}</div>
+							<div class="m1-tray">{{ spoiler }}</div>
+							<div class="m1-tray">{{ fbumper }}</div>
+							<div class="m1-tray">{{ rbumper }}</div>
+							<div class="m1-tray">{{ skirt }}</div>
+							<div class="m1-tray">{{ armor }}</div>
+							<div class="m1-tray">{{ hydraulics }}</div>
+							<div class="m1-tray">{{ wheels }}</div>	
+						</div>
+						<div class="m1-garage-services">
+						</div>
 					</div>
 				</div>
 			</div>
-		</div>
-
 	</body>
 </html>
 
 
 <script>
+
 const app = new Vue({
-	el: '#service',
+	el: '#app',
 	data: {
 		engine: -1,
 		horn: -1,
@@ -65,14 +66,8 @@ const app = new Vue({
 		changeCamRotation: function() {
 			mp.trigger("cChangeHeading", this.camRotation); 
 		},
-		sp0: function() {
-			mp.trigger("cAutoShop-CallServerEvent", z-Mod, 0, -1);
-		},
-		sp1: function() {
-			mp.trigger("cAutoShop-CallServerEvent", sAutoShop-Mod, 0, 0);
-		},
-		sp2: function() {
-			mp.trigger("cAutoShop-CallServerEvent", sAutoShop-Mod, 0, 1);
+		engineA: function() {
+			mp.trigger("cAutoShop-CallServerEvent", "sAutoShop-Mod", 1, 1);
 		},
 		exit: function() {
 			mp.trigger("cCloseCefAndDestroyCam");

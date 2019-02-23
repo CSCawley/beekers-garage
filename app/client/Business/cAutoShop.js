@@ -36,7 +36,7 @@ mp.events.add(
 		misc.prepareToCef();
 		misc.openCef("package://RP/Browsers/Business/AutoShop/Paint/paint.html");
 		misc.injectCef(service);
-		misc.createPointedCam(103.13, 6626.423, 32.828, 0, 0, 0, 80, 102.738, 6623.627, 31.829)
+		misc.createPointedCam(110.485, 6630.113, 31.787, 0, 0, 0, 80, 102.738, 6623.627, 31.829)
 		// setTimeout(function(){ 
 		// 	misc.destroyCam();
 		// },3000)
@@ -47,6 +47,7 @@ mp.events.add(
 		misc.openCef("package://RP/Browsers/Business/AutoShop/Mechanic/mechanic.html");
 		misc.injectCef(execute);
 		misc.createPointedCam(110.48, 6631.676, 31.787, 0, 0, 0, 80, 109.888, 6626.924, 31.787)
+		
 		// setTimeout(function(){ 
 		//	misc.destroyCam();
 		// },3000)

@@ -34,9 +34,35 @@
 
 .m1-tray-wrapper {
   display: grid;
-  grid-template-columns: 10% 10% 10% 10% 10% 10% 10% 10% 10% 10%;
+  grid-template-columns: auto auto auto auto auto 
+                            auto auto auto auto ;
+
+}
+
+.m1-tuning-parts {
+  grid-column-start: 4;
+  background: rgba(36, 36, 36, 0.74);
+}
+
+.m1-custom-parts {
+  grid-column-start: 5;
+  background: rgba(36, 36, 36, 0.74);
+}
+
+.m1-garage-services {
+  grid-column-start: 6;
+  background: rgba(36, 36, 36, 0.74);
 }
 
 .m1-tray {
+  background: rgb(82, 82, 82);
+  width: 6vh;
+  height: 3vh;
+  font-size: 2vh;
+  transition: 0.3s;
+  z-index: 2;
+}
 
+.m1-tray:hover {
+  background: rgb(236, 41, 41);
 }
