@@ -21,6 +21,13 @@ function prepareToCef(blurred = null) {
 }
 exports.prepareToCef = prepareToCef;
 
+function prepareToGarage(blurred = null) {
+	mp.gui.cursor.visible = true;
+	mp.game.ui.displayRadar(false);
+	mp.gui.chat.show(false);
+	if (blurred) mp.game.graphics.transitionToBlurred(blurred);
+}
+exports.prepareToGarage = prepareToGarage;
 
 function injectCef(execute) {
 	if(!cef) return;

@@ -1,6 +1,5 @@
-"use strict";
-
 const misc = require('../cMisc');
+
 const player = mp.players.local;
 const vehicle = player.vehicle
 
@@ -44,13 +43,13 @@ mp.events.add(
 	},
 
 	"cAutoShop-ShowMechanicMenu" : (execute) => {
-		misc.prepareToCef();
+		misc.prepareToGarage();
 		misc.openCef("package://RP/Browsers/Business/AutoShop/Mechanic/mechanic.html");
 		misc.injectCef(execute);
 		misc.createPointedCam(110.48, 6631.676, 31.787, 0, 0, 0, 80, 109.888, 6626.924, 31.787)
-		//setTimeout(function(){ 
+		// setTimeout(function(){ 
 		//	misc.destroyCam();
-		//},3000)
+		// },3000)
 	},
 
 	"cAutoShop-ShowDevMenu" : () => {
@@ -61,15 +60,13 @@ mp.events.add(
 	"cAutoShop-CallServerEvent" : (eventName, a, b) => {
 		mp.events.callRemote(eventName, a, b)
 	},
-
-	"cAutoShop-GetModClass" : () => mp.events.callRemote(getMods)
-	//"cAutoShop-SetVehicleColor" : (col1, col2) => vehicle.setColours(col1, col2)
+	// "cAutoShop-SetVehicleColor" : (col1, col2) => vehicle.setColours(col1, col2)
 });
 
 // RAGE Object Declarations
-//paleto right garage
-//mp.game.object.doorControl(-822900180, 114, 6623, 32, true, 0, 0, 0);
-//paleto left garage
-//mp.game.object.doorControl(-822900180, 108, 6617, 32, true, 0, 0, 0);
-//paleto paint garage
-//mp.game.object.doorControl(106.161, 6619.949, 32, true, 0, 0, 0);
+// paleto right garage
+// mp.game.object.doorControl(-822900180, 114, 6623, 32, true, 0, 0, 0);
+// paleto left garage
+// mp.game.object.doorControl(-822900180, 108, 6617, 32, true, 0, 0, 0);
+// paleto paint garage
+// mp.game.object.doorControl(106.161, 6619.949, 32, true, 0, 0, 0);
