@@ -1,7 +1,7 @@
 const app = new Vue({
 	el: '#app',
 	data: {
-		model: '',
+		model: 3714356651,
 		enginehealth: '',
 		bodyhealth: '',
 		engine: -1,

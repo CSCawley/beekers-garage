@@ -123,26 +123,33 @@
 						</div>
 
 					</div>
-					<div class="ma-service-shop">
-						
-							<div v-if="model === 3714356651">
-								<div v-for="product in m3f80" class="applyMod">
+
+					<div v-if="model === 3714356651">
+						<div class="ma-service-shop">
+							<div v-for="product in m3f80" class="itemCard">
+								<div class="itemCard-inner">
+									<div>{{ product.local }}</div>
+									<div>{{ product.index }}</div>
+									<div>{{ product.mod }}</div>
 									<div>{{ product.item }}</div>
 								</div>
 							</div>
+						</div>
+					</div>
 
-							<div v-if="model === 3559038310">
-								<div v-for="product in impalass">
-									<div>{{product.item}}</div>
-								</div>
+					<div v-if="model === 3559038310">
+						<div class="ma-service-shop">
+							<div v-for="product in impalass" class="itemCard">
+								<div>{{ product.local }}</div>
+								<div>{{ product.index }}</div>
+								<div>{{ product.mod }}</div>
+								<div>{{ product.item }}</div>
 							</div>
-
+						</div>
 					</div>
 				</div>
 
 			</div>
 	</body>
 </html>
-
-
 <script src="js/mech.js"></script>

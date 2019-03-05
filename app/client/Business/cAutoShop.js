@@ -32,11 +32,11 @@ const vehicle = player.vehicle
 
 mp.events.add(
 {
-	"cAutoShop-ShowPaintMenu" : () => {
-		// misc.prepareToCef();
+	"cAutoShop-ShowPaintMenu" : (execute) => {
+		misc.prepareToCef();
 		misc.openCef("package://RP/Browsers/Business/AutoShop/Paint/paint.html");
-		// misc.injectCef(service);
-		misc.createPointedCam(110.485, 6630.113, 31.787, 0, 0, 0, 80, 102.738, 6623.627, 31.829)
+		misc.injectCef(execute);
+		misc.createPointedCam(103.216, 6626.427, 31.828, 0, 0, 0, 80, 103.871, 6622.121, 31.829)
 		// setTimeout(function(){ 
 		// 	misc.destroyCam();
 		// },3000)

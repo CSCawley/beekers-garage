@@ -21,15 +21,14 @@ mp.blips.new(524, new mp.Vector3(111.08, 6626.702, 31.444),
   shortRange: true,
   scale: 0.75,
 })
-// Service Class. Tracks where your car is.
 const service = {
   model: '',
   bodyHealth: '',
-  engineHealth: '',
+  enginehealth: '',
   garage: '',
   service: '',
-  primeColor: -1,
-  secondaryColor: -1, 
+  primecolor: -1,
+  secondarycolor: -1, 
   mod: -1,
   engine: -1,
   horn: -1,
@@ -116,6 +115,8 @@ function colShapeEntered(player, shape){
         service.model = player.vehicle.model
         service.bodyhealth = player.vehicle.bodyHealth
         service.enginehealth = player.vehicle.engineHealth
+        service.primecolor = player.vehicle.getColor(0)
+        service.secondarycolor = player.vehicle.getColor(1)
         service.engine = player.vehicle.getMod(11)
         service.horn = player.vehicle.getMod(14)
         service.breaks = player.vehicle.getMod(12)
@@ -213,9 +214,14 @@ mp.events.add({
 mp.events.add({"sKeys-E" : (player) => {
     if (colshapeloc.location === 'menuactive') {
       if (menu.garage === 'paint') {
-        // let execute = `app.color = `
-        player.call("cAutoShop-ShowPaintMenu")
-      }
+        // player.notify(`Those custom parts aren't in yet.`)
+        let execute = `app.bodyhealth = ${service.bodyhealth};`
+        execute += `app.model = ${service.model};`
+        execute += `app.enginehealth = ${service.enginehealth};`
+        execute += `app.prime = ${service.primecolor};`
+        execute += `app.second = ${service.secondarycolor};`
+        player.call("cAutoShop-ShowPaintMenu", [execute])
+      } else
       if (menu.garage === 'parts') {
         // player.notify(`Those custom parts aren't in yet.`)
         // const servicevehicle = mp.vehicles.forEachInRange(111.08, 6626.702, 31.444, 2, 0, 70);

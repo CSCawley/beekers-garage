@@ -1,10 +1,9 @@
 ﻿html {
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.0);
+  background-color: rgba(0, 0, 0, 0);
   font-family: Segoe UI;
   font-weight: 100;
   color: #DDD;
-  text-align: center;
 }
 
 .logoLoading {
@@ -14,6 +13,26 @@
 .logo {
   margin: auto;
   /*height: 40vh;*/
+}
+
+.ma-service-shop {
+  display: grid;
+  grid-template-columns: auto auto auto auto auto auto;
+  grid-template-rows: auto auto auto;
+  row-gap: 1em;
+  column-gap: 1em;
+  margin: 6vh;
+  margin-top: 28vh;
+}
+
+.itemCard {
+  background: white;
+  color: rgb(26, 26, 26);
+  border-radius: 3px;
+}
+
+.itemCard-inner {
+  padding: 10px;
 }
 
 .ma-close {
@@ -26,6 +45,7 @@
   font-size: 2vh;
   transition: 0.3s;
   z-index: 2;
+  text-align: center;
 }
 
 .ma-close:hover {
@@ -36,8 +56,7 @@
   display: grid;
   grid-template-columns: auto auto auto auto auto 
                             auto auto auto auto ;
-
-}
+  }
 
 .m1-tuning-parts {
   grid-column-start: 4;
