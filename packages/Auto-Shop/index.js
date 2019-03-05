@@ -59,8 +59,7 @@ const service = {
 // Menu Class. Tracks what Menu to deliver based on which garage slot the users car is in.
 class menu {
   constructor() {
-    this.garage = false
-    this.paint = false
+    this.garage = ''
   }
 }
 // Location Class
@@ -159,10 +158,10 @@ function colShapeEntered(player, shape){
   if (shape === colshapeDesk) {
     colshapeloc.location = 'menuactive'
     if (service.garage === 'ingarage') {
-      menu.garage = true
+      menu.garage = 'parts'
       player.notify(`Press ~b~E ~s~to open Mechanic Menu`)
     } else if (service.garage === 'inpaint') {
-      menu.paint = true
+      menu.garage = 'paint'
       player.notify(`Press ~b~E ~s~to open Paint Menu`)
     } else {
       player.notify(`Yeah? What do you want?`)
@@ -175,14 +174,14 @@ function colShapeExited(player, shape) {
     if (player.vehicle) {
       player.notify(`Have a nice day!`)
       service.garage = ''
-      menu.garage = false
+      menu.garage = ''
     }
   }
   if (shape === colshapePaint) {
     if (player.vehicle) {
       player.notify(`Have a nice day!`)
       service.garage = ''
-      menu.paint = false
+      menu.garage = ''
     }
   }
   if (shape === colshapeDesk) {
@@ -213,11 +212,11 @@ mp.events.add({
 })
 mp.events.add({"sKeys-E" : (player) => {
     if (colshapeloc.location === 'menuactive') {
-      if (menu.paint === true) {
+      if (menu.garage === 'paint') {
         // let execute = `app.color = `
         player.call("cAutoShop-ShowPaintMenu")
       }
-      if (menu.garage === true) {
+      if (menu.garage === 'parts') {
         // player.notify(`Those custom parts aren't in yet.`)
         // const servicevehicle = mp.vehicles.forEachInRange(111.08, 6626.702, 31.444, 2, 0, 70);
         // player.notify(`${ servicevehicle }`)
