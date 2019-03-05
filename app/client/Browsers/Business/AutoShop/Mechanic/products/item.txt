@@ -1,0 +1,164 @@
+  "Impalass": {
+    "index": 0,
+    "mod": 0,
+    "item": "Back Blinds"
+
+    "index": 0,
+    "mod": 2,
+    "item": "Back Blinds"
+
+    "index": 0,
+    "mod": 1,
+    "item": "Back Blinds"
+
+    "index": 1,
+    "mod": 0,
+    "item": "Silver Grille Claw"
+
+    "index": 1,
+    "mod": 1,
+    "item": "Gold Grille Claw"
+
+    "index": 1,
+    "mod": 2,
+    "item": "Body Paint Grille Claw"
+
+    "index": 1,
+    "mod": 6,
+    "item": "Body Paint Bumper"
+
+    "index": 1,
+    "mod": 9,
+    "item": "Gilded Chrome Bumper"
+
+    "index": 1,
+    "mod": 10,
+    "item": "Gold Bumper"
+
+    "index": 1,
+    "mod": 11,
+    "item": "Gold Bumper with Gold Grille Claw"
+
+    "index": 1,
+    "mod": 12,
+    "item": "Body Paint Bumper with Body Paint Grille Claw"
+
+    "index": 1,
+    "mod": 14,
+    "item": "Gilded Gold Bumper with Gilded Gold Grille Claw"
+
+    "index": 1,
+    "mod": 15,
+    "item": "Gilded Chrome Bumper with Gilded Chrome Grille Claw"
+
+    "index": 1,
+    "mod": 16,
+    "item": "Body Paint Bumper with Chrome Grille Claw"
+
+    "index": 2,
+    "mod": 0,
+    "item": "Body Paint Rear Bumper"
+
+    "index": 2,
+    "mod": 2,
+    "item": "Gold Rear Bumper"
+
+    "index": 2,
+    "mod": 3,
+    "item": "Gilded Gold Rear Bumper"
+
+    "index": 2,
+    "mod": 4,
+    "item": "Gilded Chome Rear Bumper"
+
+    "index": 2,
+    "mod": 5,
+    "item": "Gilded Gold Rear Bumper with Spare"
+
+    "index": 2,
+    "mod": 6,
+    "item": "Gilded Chrome Rear Bumper with Spare"
+
+    "index": 2,
+    "mod": 7,
+    "item": "Remove License Plate"
+
+    "index": 3,
+    "mod": 0,
+    "item": "Sherwood Silver Side Skirt"
+
+    "index": 5,
+    "mod": 0,
+    "item": "Silver Curb Feelers"
+
+    "index": 6,
+    "mod": 3,
+    "item": "Headlight Trim"
+
+    "index": 7,
+    "mod": 2,
+    "item": "Shark Fin Hood"
+
+    "index": 7,
+    "mod": 3,
+    "item": "Gilded Shark Fin Hood"
+    
+    10 2 "Natural Leather Roof"
+    10 3 "Body Paint Leather Roof"
+    10 4 "No Paint Extremly Worn Roof"
+    10 5 "Custom Painted Wings Roof"
+    33 1 
+    33 2
+    33 3
+    33 4
+    33 5
+    33 6
+    33 7
+    33 8
+    33 9
+    33 10
+    33 11
+    33 12
+    33 13
+    33 14
+    33 15
+    33 16
+  },
+  "Engine": {
+    11 -1
+    11 0
+    11 1
+    11 2
+    11 3
+  },
+  "Break": {
+    12 -1
+    12 0
+    12 1
+    12 2
+  },
+  "Transmission": {
+    13 -1
+    13 0
+    13 1
+    13 2
+  },
+  "Suspension": {
+    15 -1
+    15 0
+    15 1
+    15 2
+    15 3
+  },
+  "Armor": {
+    16 -1
+    16 0
+    16 1
+    16 2
+    16 3
+    16 4 
+  },
+  "Turbo": {
+    18 -1 None
+    18 0 Turbo Tuning
+  }

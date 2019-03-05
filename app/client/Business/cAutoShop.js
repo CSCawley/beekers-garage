@@ -3,39 +3,39 @@ const misc = require('../cMisc');
 const player = mp.players.local;
 const vehicle = player.vehicle
 
-mp.game.streaming.requestIpl("apa_v_mp_h_02_c");
-mp.game.streaming.requestIpl("imp_dt1_02_modgarage")
-mp.game.streaming.requestIpl("imp_dt1_02_cargarage_a")
-mp.game.streaming.requestIpl("imp_dt1_02_cargarage_b")
-mp.game.streaming.requestIpl("imp_dt1_02_cargarage_c")
+// mp.game.streaming.requestIpl("apa_v_mp_h_02_c");
+// mp.game.streaming.requestIpl("imp_dt1_02_modgarage")
+// mp.game.streaming.requestIpl("imp_dt1_02_cargarage_a")
+// mp.game.streaming.requestIpl("imp_dt1_02_cargarage_b")
+// mp.game.streaming.requestIpl("imp_dt1_02_cargarage_c")
  
-mp.game.streaming.requestIpl("imp_dt1_11_modgarage")
-mp.game.streaming.requestIpl("imp_dt1_11_cargarage_a")
-mp.game.streaming.requestIpl("imp_dt1_11_cargarage_b")
-mp.game.streaming.requestIpl("imp_dt1_11_cargarage_c")
+// mp.game.streaming.requestIpl("imp_dt1_11_modgarage")
+// mp.game.streaming.requestIpl("imp_dt1_11_cargarage_a")
+// mp.game.streaming.requestIpl("imp_dt1_11_cargarage_b")
+// mp.game.streaming.requestIpl("imp_dt1_11_cargarage_c")
  
-mp.game.streaming.requestIpl("imp_sm_13_modgarage")
-mp.game.streaming.requestIpl("imp_sm_13_cargarage_a")
-mp.game.streaming.requestIpl("imp_sm_13_cargarage_b")
-mp.game.streaming.requestIpl("imp_sm_13_cargarage_c")
+// mp.game.streaming.requestIpl("imp_sm_13_modgarage")
+// mp.game.streaming.requestIpl("imp_sm_13_cargarage_a")
+// mp.game.streaming.requestIpl("imp_sm_13_cargarage_b")
+// mp.game.streaming.requestIpl("imp_sm_13_cargarage_c")
  
-mp.game.streaming.requestIpl("imp_sm_15_modgarage")
-mp.game.streaming.requestIpl("imp_sm_15_cargarage_a")
-mp.game.streaming.requestIpl("imp_sm_15_cargarage_b")
-mp.game.streaming.requestIpl("imp_sm_15_cargarage_c")
+// mp.game.streaming.requestIpl("imp_sm_15_modgarage")
+// mp.game.streaming.requestIpl("imp_sm_15_cargarage_a")
+// mp.game.streaming.requestIpl("imp_sm_15_cargarage_b")
+// mp.game.streaming.requestIpl("imp_sm_15_cargarage_c")
  
-mp.game.streaming.requestIpl("imp_impexp_interior_placement")
-mp.game.streaming.requestIpl("imp_impexp_interior_placement_interior_0_impexp_int_01_milo_")
-mp.game.streaming.requestIpl("imp_impexp_interior_placement_interior_3_impexp_int_02_milo_")
-mp.game.streaming.requestIpl("imp_impexp_interior_placement_interior_1_impexp_intwaremed_milo_")
-mp.game.streaming.requestIpl("imp_impexp_interior_placement_interior_2_imptexp_mod_int_01_milo_")
+// mp.game.streaming.requestIpl("imp_impexp_interior_placement")
+// mp.game.streaming.requestIpl("imp_impexp_interior_placement_interior_0_impexp_int_01_milo_")
+// mp.game.streaming.requestIpl("imp_impexp_interior_placement_interior_3_impexp_int_02_milo_")
+// mp.game.streaming.requestIpl("imp_impexp_interior_placement_interior_1_impexp_intwaremed_milo_")
+// mp.game.streaming.requestIpl("imp_impexp_interior_placement_interior_2_imptexp_mod_int_01_milo_")
 
 mp.events.add(
 {
-	"cAutoShop-ShowPaintMenu" : (service) => {
-		misc.prepareToCef();
+	"cAutoShop-ShowPaintMenu" : () => {
+		// misc.prepareToCef();
 		misc.openCef("package://RP/Browsers/Business/AutoShop/Paint/paint.html");
-		misc.injectCef(service);
+		// misc.injectCef(service);
 		misc.createPointedCam(110.485, 6630.113, 31.787, 0, 0, 0, 80, 102.738, 6623.627, 31.829)
 		// setTimeout(function(){ 
 		// 	misc.destroyCam();
@@ -55,9 +55,20 @@ mp.events.add(
 
 	"cAutoShop-ShowDevMenu" : () => {
 		misc.prepareToCef()
-		misc.openCef("package://RP/Browsers/Business/AutoShop/Paint/paint.html")
+		misc.openCef("package://RP/Browsers/Business/AutoShop/Dev/index.html")
 	},
 
+	"cAutoShop-TakePicture" : () => {
+		mp.game.ui.displayRadar(false);
+		mp.gui.chat.show(false);
+		setTimeout(function(){ 
+			mp.game.ui.displayRadar(true);
+			mp.gui.chat.show(true);
+		},12000)
+	},
+	"cAutoShop-SetDirt" : () => {
+		vehicle.setDirtLevel(0)
+	},
 	"cAutoShop-CallServerEvent" : (eventName, a, b) => {
 		mp.events.callRemote(eventName, a, b)
 	},

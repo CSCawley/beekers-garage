@@ -7,71 +7,142 @@
 	<body>
 		<div id="app">
 			<div class="ma-close" id="close-button" @click="exit">X</div>
+				
 				<div class="ma-service-show">
+					
 					<div class="m1-tray-wrapper">
 						<div class="m1-tuning-parts">
-							<div class="m1-tray" @click="engineA">{{ engine }}</div>
-							<div class="m1-tray">{{ breaks }}</div>
-							<div class="m1-tray">{{ transmission }}</div>
-							<div class="m1-tray">{{ suspension }}</div>
-							<div class="m1-tray">{{ turbo }}</div>
-							<div class="m1-tray">{{ boost }}</div>
+							<div class="m1-tray" @click="engineA">
+								<div class="m1-label">Engine</div>
+								<div class="m1-value">{{ engine }}</div>
+							</div>
+							<div class="m1-tray">
+								<div class="m1-label">breaks</div>
+								<div class="m1-value">{{ breaks }}</div>
+							</div>
+							<div class="m1-tray">
+								<div class="m1-label">transmission</div>
+								<div class="m1-value">{{ transmission }}</div>
+							</div>
+							<div class="m1-tray">
+								<div class="m1-label">suspension</div>
+								<div class="m1-value">{{ suspension }}</div>
+							</div>
+							<div class="m1-tray">
+								<div class="m1-label">turbo</div>
+								<div class="m1-value">{{ turbo }}</div>
+							</div>
+							<div class="m1-tray">
+								<div class="m1-label">boost</div>
+								<div class="m1-value">{{ boost }}</div>
+							</div>
 						</div>
 						<div class="m1-custom-parts">
-							<div class="m1-tray">{{ horn }}</div>
-							<div class="m1-tray">{{ xenon }}</div>
-							<div class="m1-tray">{{ tint }}</div>
-							<div class="m1-tray">{{ plate }}</div>
-							<div class="m1-tray">{{ spoiler }}</div>
-							<div class="m1-tray">{{ fbumper }}</div>
-							<div class="m1-tray">{{ rbumper }}</div>
-							<div class="m1-tray">{{ skirt }}</div>
-							<div class="m1-tray">{{ armor }}</div>
-							<div class="m1-tray">{{ hydraulics }}</div>
-							<div class="m1-tray">{{ wheels }}</div>	
+
+							<div class="m1-tray">
+								<div class="m1-label">horn</div>
+								<div class="m1-value">{{ horn }}</div>
+							</div>
+							<div class="m1-tray">
+								<div class="m1-label">xenon</div>
+								<div class="m1-value">{{ xenon }}</div>
+							</div>
+							<div class="m1-tray">
+								<div class="m1-label">tint</div>
+								<div class="m1-value">{{ tint }}</div>
+							</div>
+							<div class="m1-tray">
+								<div class="m1-label">plate</div>
+								<div class="m1-value">{{ plate }}</div>
+							</div>
+							<div class="m1-tray">
+								<div class="m1-label">spoiler</div>
+								<div class="m1-value">{{ spoiler }}</div>
+							</div>
+							<div class="m1-tray">
+								<div class="m1-label">fbumper</div>
+								<div class="m1-value">{{ fbumper }}</div>
+							</div>
+							<div class="m1-tray">
+								<div class="m1-label">rbumper</div>
+								<div class="m1-value">{{ rbumper }}</div>
+							</div>
+							<div class="m1-tray">
+								<div class="m1-label">skirt</div>
+								<div class="m1-value">{{ skirt }}</div>
+							</div>
+							<div class="m1-tray">
+								<div class="m1-label">armor</div>
+								<div class="m1-value">{{ armor }}</div>
+							</div>
+							<div class="m1-tray">
+								<div class="m1-label">hydraulics</div>
+								<div class="m1-value">{{ hydraulics }}</div>
+							</div>
+							<div class="m1-tray">
+								<div class="m1-label">frame</div>
+								<div class="m1-value">{{ frame }}</div>
+							</div>
+							<div class="m1-tray">
+								<div class="m1-label">exhaust</div>
+								<div class="m1-value">{{ exhaust }}</div>
+							</div>
+							<div class="m1-tray">
+								<div class="m1-label">grille</div>
+								<div class="m1-value">{{ grille }}</div>
+							</div>
+							<div class="m1-tray">
+								<div class="m1-label">hood</div>
+								<div class="m1-value">{{ hood }}</div>
+							</div>
+							<div class="m1-tray">
+								<div class="m1-label">roof</div>
+								<div class="m1-value">{{ roof }}</div>
+							</div>
+
 						</div>
 						<div class="m1-garage-services">
+
+							<div class="m1-tray">
+								<div class="m1-label">Model</div>
+								<div class="m1-value">{{ model }}</div>
+							</div>
+							<div class="m1-tray">
+								<div class="m1-label">Body Health</div>
+								<div class="m1-value">{{ bodyhealth }}</div>
+							</div>
+							<div class="m1-tray">
+								<div class="m1-label">Engine Health</div>
+								<div class="m1-value">{{ enginehealth }}</div>
+							</div>
+							<div class="m1-tray" @click="repair">
+								<div class="m1-label">Repair Vehicle</div>
+								<div class="m1-value">{{ repairammount }}</div>
+							</div>
+
 						</div>
+
+					</div>
+					<div class="ma-service-shop">
+						
+							<div v-if="model === 3714356651">
+								<div v-for="product in m3f80" class="applyMod">
+									<div>{{ product.item }}</div>
+								</div>
+							</div>
+
+							<div v-if="model === 3559038310">
+								<div v-for="product in impalass">
+									<div>{{product.item}}</div>
+								</div>
+							</div>
+
 					</div>
 				</div>
+
 			</div>
 	</body>
 </html>
 
 
-<script>
-
-const app = new Vue({
-	el: '#app',
-	data: {
-		engine: -1,
-		horn: -1,
-		breaks: -1, 
-		transmission: -1,
-		suspension: -1,
-		turbo: -1,
-		xenon: -1,
-		tint: -1,
-		plate: -1,
-		boost: -1,
-		spoiler: -1,
-		fbumper: -1,
-		rbumper: -1,
-		skirt: -1,
-		armor: -1,
-		hydraulics: -1,
-		wheels: -1
-	},
-	methods: {
-		changeCamRotation: function() {
-			mp.trigger("cChangeHeading", this.camRotation); 
-		},
-		engineA: function() {
-			mp.trigger("cAutoShop-CallServerEvent", "sAutoShop-Mod", 1, 1);
-		},
-		exit: function() {
-			mp.trigger("cCloseCefAndDestroyCam");
-		}
-	}
-});
-</script>
+<script src="js/mech.js"></script>

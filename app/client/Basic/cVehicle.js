@@ -23,12 +23,6 @@ class cVehicle {
 			"cVehicle-rollUpWindow" : (vehicle, window) => vehicle.rollUpWindow(window),
 			"cVehicle-rollDownWindow" : (vehicle, window) => vehicle.rollDownWindow(window),
 			
-			"render" : () => {
-				this.setLightMultiplier();
-				this.showSpeed();
-				this.showFuel();
-				this.showBrakeLights();
-			},
 		});
 	}
 

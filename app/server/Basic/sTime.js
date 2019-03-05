@@ -34,7 +34,7 @@ class TimeSingleton {
 	}
 
 	changeTime(currentDate, isFirstRunning) {
-		mp.world.time.hour = currentDate.getHours() + 12;
+		mp.world.time.hour = currentDate.getHours() -8;
 		mp.world.time.minute = currentDate.getMinutes();
 		if (isFirstRunning) return false;
 		this.everyMinuteEvent();

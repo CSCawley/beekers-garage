@@ -55,13 +55,30 @@
 }
 
 .m1-tray {
+  display: grid;
+  grid-template-columns: auto auto;
   background: rgb(82, 82, 82);
-  width: 6vh;
-  height: 3vh;
   font-size: 2vh;
   transition: 0.3s;
   z-index: 2;
 }
+
+.m1-label {
+  grid-column-start: 1;
+}
+
+.m1-value {
+  grid-column-start: 2;
+}
+
+
+
+/* .m1-label {
+  background: rgb(82, 82, 82);
+  grid-column-start: 2;
+  width: 3vh;
+  height: 3vh;
+} */
 
 .m1-tray:hover {
   background: rgb(236, 41, 41);

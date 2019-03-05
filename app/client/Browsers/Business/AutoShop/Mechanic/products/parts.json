@@ -1,0 +1,99 @@
+{
+  "m3f80":[
+    {
+      "index": 0,
+      "mod": 2,
+      "item": "GT Universal Racing Spoiler"
+    },
+    {
+      "index": 0,
+      "mod": 1,
+      "item": "VIE Rear Lip Spoiler"
+    },
+    {
+      "index": 1,
+      "mod": 0,
+      "item": "Sherman Front Bumper Cover with wind splitter"
+    },
+    {
+      "index": 1,
+      "mod": 1,
+      "item": "Sherwood Front Bumper with Track Racing Tow Hook and wind splitter"
+    },
+    {
+      "index": 1,
+      "mod": 2,
+      "item": "Sherwood Front Bumper Cover"
+    },
+    {
+      "index": 2,
+      "mod": 0,
+      "item": "carbon fiber muffler guard"
+    },
+    {
+      "index": 2,
+      "mod": 1,
+      "item": "VIE Rear Diffuser"
+    },
+    {
+      "index": 2,
+      "mod": 2,
+      "item": "VIE Rear Diffuser with carbon fiber bumper guard"
+    },
+    {
+      "index": 3,
+      "mod": 0,
+      "item": "Sherwood Side Skirt"
+    },
+    {
+      "index": 4,
+      "mod": 0,
+      "item": "Black Metal Exhaust Pipes"
+    },
+    {
+      "index": 4,
+      "mod": 1,
+      "item": "Double Black Metal Exhaust Pipes"
+    },
+    {
+      "index": 5,
+      "mod": 0,
+      "item": "Roll Cage"
+    },
+    {
+      "index": 6,
+      "mod": 0,
+      "item": "Chrome Grille"
+    },
+    {
+      "index": 6,
+      "mod": 1,
+      "item": "Black and BMW Racing Stripes Grille"
+    },
+    {
+      "index": 7,
+      "mod": 0,
+      "item": "Carbon Fiber Hood"
+    },
+    {
+      "index": 7,
+      "mod": 1,
+      "item": "Sport Vent Hood"
+    },
+    {
+      "index": 7,
+      "mod": 2,
+      "item": "Carbon Fiber Sport Vent Hood"
+    },
+    {
+      "index": 10,
+      "mod": -1,
+      "item": "Carbon Fiber Roof"
+    },
+    {
+      "index": 10,
+      "mod": 0,
+      "item": "Metal Roof"
+    }
+  ]
+}

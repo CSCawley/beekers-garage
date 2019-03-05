@@ -23,6 +23,9 @@ mp.blips.new(524, new mp.Vector3(111.08, 6626.702, 31.444),
 })
 // Service Class. Tracks where your car is.
 const service = {
+  model: '',
+  bodyHealth: '',
+  engineHealth: '',
   garage: '',
   service: '',
   primeColor: -1,
@@ -44,7 +47,13 @@ const service = {
   skirt: -1,
   armor: -1,
   hydraulics: -1,
-  wheels: -1
+  wheels: -1,
+  frame: -1,
+  exhaust: -1,
+  grille: -1,
+  hood: -1,
+  roof: -1,
+  repairammount: 700
 }
 
 // Menu Class. Tracks what Menu to deliver based on which garage slot the users car is in.
@@ -62,13 +71,24 @@ class colshapeloc {
 }
 // ColShapes
 const colshapeMechanic = mp.colshapes.newSphere(111.08, 6626.702, 31.444, 2.5);
+// const colshapeHarmonyMechanic = mp.colshapes.newSphere(111.08, 6626.702, 31.444, 2.5);
+// const colshapeHarmonyPaint = mp.colshapes.newSphere(104.129, 6622.053, 31.486, 2.5);
 const colshapePaint = mp.colshapes.newSphere(104.129, 6622.053, 31.486, 2.5);
 const colshapeDesk = mp.colshapes.newSphere(101.069, 6618.729, 32.435, 1);
 // ColShape Functions Entering
 function colShapeEntered(player, shape){
   // Car is registered into the garage service
-  if (shape === colshapeMechanic) {
+    if (shape === colshapeMechanic) {
+    mp.vehicles.forEachInRange(new mp.Vector3(111.08, 6626.702, 31.444), 3,
+      (vehicle) => {
+        vehicle.setMod(parseInt(a), parseInt(b))
+      }
+    );
     if (player.vehicle) {
+      
+      service.model = player.vehicle.model
+      service.bodyhealth = player.vehicle.bodyHealth
+      service.enginehealth = player.vehicle.engineHealth
       service.engine = player.vehicle.getMod(11)
       service.horn = player.vehicle.getMod(14)
       service.breaks = player.vehicle.getMod(12)
@@ -86,6 +106,11 @@ function colShapeEntered(player, shape){
       service.armor = player.vehicle.getMod(16)
       service.hydraulics = player.vehicle.getMod(38)
       service.wheels = player.vehicle.getMod(23)
+      service.frame = player.vehicle.getMod(5)
+      service.exhaust = player.vehicle.getMod(4)
+      service.grille = player.vehicle.getMod(6)
+      service.hood = player.vehicle.getMod(7)
+      service.roof = player.vehicle.getMod(10)
       const str = `boost: ${service.boost} Turbo: ${service.turbo}`
       player.notify(str)
       player.notify(`Get out and see the mechanic.`)
@@ -149,16 +174,30 @@ mp.events.add({
   );
   }
 })
+mp.events.add({ 
+  "sAutoShop-Repair" : ( a, b ) => {
+    mp.vehicles.forEachInRange(new mp.Vector3(111.08, 6626.702, 31.444), 3,
+      (vehicle) => {
+        vehicle.repair()
+      }
+  );
+  }
+})
 mp.events.add({"sKeys-E" : (player) => {
     if (colshapeloc.location === 'menuactive') {
       if (menu.paint === true) {
-      // player.call("cAutoShop-ShowPaintMenu", service)
+        // let execute = `app.color = `
+        player.call("cAutoShop-ShowPaintMenu")
       }
       if (menu.garage === true) {
         // player.notify(`Those custom parts aren't in yet.`)
         // const servicevehicle = mp.vehicles.forEachInRange(111.08, 6626.702, 31.444, 2, 0, 70);
         // player.notify(`${ servicevehicle }`)
-        let execute = `app.engine = ${service.engine};`
+
+        let execute = `app.bodyhealth = ${service.bodyhealth};`
+        execute += `app.model = ${service.model};`
+        execute += `app.enginehealth = ${service.enginehealth};`
+        execute += `app.engine = ${service.engine};`
         execute += `app.horn = ${service.horn};`
         execute += `app.breaks = ${service.breaks};`
         execute += `app.transmission = ${service.transmission};`
@@ -174,7 +213,12 @@ mp.events.add({"sKeys-E" : (player) => {
         execute += `app.skirt = ${service.skirt};`
         execute += `app.armor = ${service.armor};`
         execute += `app.hyrdraulics = ${service.hydraulics};`
-        execute += `app.wheels = ${service.wheels};`
+        execute += `app.frame = ${service.frame};`
+        execute += `app.exhaust = ${service.exhaust};`
+        execute += `app.grille = ${service.grille};`
+        execute += `app.hood = ${service.hood};`
+        execute += `app.roof = ${service.roof};`
+        execute += `app.repairammount = ${service.repairammount};`
         // const execute = JSON.stringify(service)
 
         player.call("cAutoShop-ShowMechanicMenu", [execute])
@@ -186,7 +230,7 @@ mp.events.add({"sKeys-E" : (player) => {
   }
 });
 //
-mp.events.addCommand('mod', (player, a , b) => {
+mp.events.addCommand('mod', (player, fullText, a , b) => {
   player.vehicle.setMod(parseInt(a), parseInt(b));
 });
 //
@@ -215,12 +259,23 @@ mp.events.addCommand('modtest', () => {
       vehicle.setMod(0,1);
     }
   );
-})
+});
 // Plate: Text string Alpha Numeric
 mp.events.addCommand('licenseplate', (player, _, plate) => {
   if(player.vehicle) {
       player.vehicle.numberPlate = plate;
   }
 });
+// Take Picture
+mp.events.addCommand('takepic', (player) => {
+  player.call("cAutoShop-TakePicture")
+});
+// Clean Car
+mp.events.addCommand('carwash', (player) => {
+  player.call("cAutoShop-SetDirt")
+});
 
+// Mansion garage x: -402.47, y: 510.727, z: 119.67, rot: 144.3
+// Mansion front door x: -386.918, y: 504.222, z: 120.413, rot: 144.28
+// ranger station x: 373.913, y: 795.822, z: 186.836, rot: 358.23
 // Air Force Base x: -2349.024, y: 3269.134, z: 32.811, rot: 315.41
