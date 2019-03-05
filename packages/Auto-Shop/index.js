@@ -79,43 +79,71 @@ const colshapeDesk = mp.colshapes.newSphere(101.069, 6618.729, 32.435, 1);
 function colShapeEntered(player, shape){
   // Car is registered into the garage service
     if (shape === colshapeMechanic) {
-    mp.vehicles.forEachInRange(new mp.Vector3(111.08, 6626.702, 31.444), 3,
-      (vehicle) => {
-        vehicle.setMod(parseInt(a), parseInt(b))
+      // mp.vehicles.forEachInRange(new mp.Vector3(111.08, 6626.702, 31.444), 3,
+      //   (vehicle) => {
+      //     service.model = vehicle.model
+      //     service.bodyhealth = vehicle.bodyHealth
+      //     service.enginehealth = vehicle.engineHealth
+      //     service.engine = vehicle.getMod(11)
+      //     service.horn = vehicle.getMod(14)
+      //     service.breaks = vehicle.getMod(12)
+      //     service.transmission = vehicle.getMod(13)
+      //     service.suspension = vehicle.getMod(15)
+      //     service.turbo = vehicle.getMod(18)
+      //     service.xenon = vehicle.getMod(22)
+      //     service.tint = vehicle.getMod(46)
+      //     service.plate = vehicle.getMod(62)
+      //     service.boost = vehicle.getMod(40)
+      //     service.spoiler = vehicle.getMod(0)
+      //     service.fbumper = vehicle.getMod(1)
+      //     service.rbumper = vehicle.getMod(2)
+      //     service.skirt = vehicle.getMod(3)
+      //     service.armor = vehicle.getMod(16)
+      //     service.hydraulics = vehicle.getMod(38)
+      //     service.wheels = vehicle.getMod(23)
+      //     service.frame = vehicle.getMod(5)
+      //     service.exhaust = vehicle.getMod(4)
+      //     service.grille = vehicle.getMod(6)
+      //     service.hood = vehicle.getMod(7)
+      //     service.roof = vehicle.getMod(10)
+      //     const str = `boost: ${service.boost} Turbo: ${service.turbo}`
+      //     player.notify(str)
+      //     player.notify(`Get out and see the mechanic.`)
+      //     service.garage = 'ingarage'
+      //   }
+      // );
+      if (player.vehicle) {
+        
+        service.model = player.vehicle.model
+        service.bodyhealth = player.vehicle.bodyHealth
+        service.enginehealth = player.vehicle.engineHealth
+        service.engine = player.vehicle.getMod(11)
+        service.horn = player.vehicle.getMod(14)
+        service.breaks = player.vehicle.getMod(12)
+        service.transmission = player.vehicle.getMod(13)
+        service.suspension = player.vehicle.getMod(15)
+        service.turbo = player.vehicle.getMod(18)
+        service.xenon = player.vehicle.getMod(22)
+        service.tint = player.vehicle.getMod(46)
+        service.plate = player.vehicle.getMod(62)
+        service.boost = player.vehicle.getMod(40)
+        service.spoiler = player.vehicle.getMod(0)
+        service.fbumper = player.vehicle.getMod(1)
+        service.rbumper = player.vehicle.getMod(2)
+        service.skirt = player.vehicle.getMod(3)
+        service.armor = player.vehicle.getMod(16)
+        service.hydraulics = player.vehicle.getMod(38)
+        service.wheels = player.vehicle.getMod(23)
+        service.frame = player.vehicle.getMod(5)
+        service.exhaust = player.vehicle.getMod(4)
+        service.grille = player.vehicle.getMod(6)
+        service.hood = player.vehicle.getMod(7)
+        service.roof = player.vehicle.getMod(10)
+        const str = `boost: ${service.boost} Turbo: ${service.turbo}`
+        player.notify(str)
+        player.notify(`Get out and see the mechanic.`)
+        service.garage = 'ingarage'
       }
-    );
-    if (player.vehicle) {
-      
-      service.model = player.vehicle.model
-      service.bodyhealth = player.vehicle.bodyHealth
-      service.enginehealth = player.vehicle.engineHealth
-      service.engine = player.vehicle.getMod(11)
-      service.horn = player.vehicle.getMod(14)
-      service.breaks = player.vehicle.getMod(12)
-      service.transmission = player.vehicle.getMod(13)
-      service.suspension = player.vehicle.getMod(15)
-      service.turbo = player.vehicle.getMod(18)
-      service.xenon = player.vehicle.getMod(22)
-      service.tint = player.vehicle.getMod(46)
-      service.plate = player.vehicle.getMod(62)
-      service.boost = player.vehicle.getMod(40)
-      service.spoiler = player.vehicle.getMod(0)
-      service.fbumper = player.vehicle.getMod(1)
-      service.rbumper = player.vehicle.getMod(2)
-      service.skirt = player.vehicle.getMod(3)
-      service.armor = player.vehicle.getMod(16)
-      service.hydraulics = player.vehicle.getMod(38)
-      service.wheels = player.vehicle.getMod(23)
-      service.frame = player.vehicle.getMod(5)
-      service.exhaust = player.vehicle.getMod(4)
-      service.grille = player.vehicle.getMod(6)
-      service.hood = player.vehicle.getMod(7)
-      service.roof = player.vehicle.getMod(10)
-      const str = `boost: ${service.boost} Turbo: ${service.turbo}`
-      player.notify(str)
-      player.notify(`Get out and see the mechanic.`)
-      service.garage = 'ingarage'
-    }
   }
   // Car is registered into the paint service
   if (shape === colshapePaint) {
