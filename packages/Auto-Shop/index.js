@@ -2,13 +2,8 @@ const player = mp.players.local
 
 // PAINT
 // x: 104.129, y: 6622.053, z: 31.486, rot: 43.44
-
-
 // Mech
 // x: 111.08, y: 6626.702, z: 31.444, rot: 41.8
-
-// car repair
-// let bodyHealth = vehicle.bodyHealth
 
 // raise car
 // entity.setCollision(false, true)
@@ -16,11 +11,12 @@ const player = mp.players.local
 // Map Location
 mp.blips.new(524, new mp.Vector3(111.08, 6626.702, 31.444),
 {
-  name: "Carrucan's Customs",
+  name: "Beekers's Foreign & Domestic Tuning",
   color: 49,		
   shortRange: true,
   scale: 0.75,
 })
+
 const service = {
   model: '',
   bodyHealth: '',
@@ -61,18 +57,24 @@ class menu {
     this.garage = ''
   }
 }
+
 // Location Class
 class colshapeloc {
   constructor() {
     this.location = ''
   }
 }
-// ColShapes
+// ColShapes actually work! I love you George.
+// Paleto
+//// Mechanic
 const colshapeMechanic = mp.colshapes.newSphere(111.08, 6626.702, 31.444, 2.5);
-// const colshapeHarmonyMechanic = mp.colshapes.newSphere(111.08, 6626.702, 31.444, 2.5);
-// const colshapeHarmonyPaint = mp.colshapes.newSphere(104.129, 6622.053, 31.486, 2.5);
+//// Paint
 const colshapePaint = mp.colshapes.newSphere(104.129, 6622.053, 31.486, 2.5);
+//// Desk
 const colshapeDesk = mp.colshapes.newSphere(101.069, 6618.729, 32.435, 1);
+// Harmony
+//// const colshapeHarmonyMechanic = mp.colshapes.newSphere(111.08, 6626.702, 31.444, 2.5);
+//// const colshapeHarmonyPaint = mp.colshapes.newSphere(104.129, 6622.053, 31.486, 2.5);
 // ColShape Functions Entering
 function colShapeEntered(player, shape){
   // Car is registered into the garage service
@@ -312,3 +314,6 @@ mp.events.addCommand('carwash', (player) => {
 // Mansion front door x: -386.918, y: 504.222, z: 120.413, rot: 144.28
 // ranger station x: 373.913, y: 795.822, z: 186.836, rot: 358.23
 // Air Force Base x: -2349.024, y: 3269.134, z: 32.811, rot: 315.41
+// payphone in Mirror Park 1156.351, y: -776.3, z: 57.599
+// liqour store by mirror park 1135.63, y: -982.099, z: 46.416
+// https://www.anandtech.com/show/14045/energizer-power-max-p18k-pop-with-18000-mah-battery-at-mwc-2019
