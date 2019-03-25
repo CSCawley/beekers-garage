@@ -205,7 +205,7 @@ mp.events.add({
   }
 })
 mp.events.add({ 
-  "sAutoShop-Repair" : ( a, b ) => {
+  "sAutoShop-Repair" : () => {
     mp.vehicles.forEachInRange(new mp.Vector3(111.08, 6626.702, 31.444), 3,
       (vehicle) => {
         vehicle.repair()
@@ -228,7 +228,8 @@ mp.events.add({"sKeys-E" : (player) => {
         // player.notify(`Those custom parts aren't in yet.`)
         // const servicevehicle = mp.vehicles.forEachInRange(111.08, 6626.702, 31.444, 2, 0, 70);
         // player.notify(`${ servicevehicle }`)
-
+        
+        // refactor this garbage please
         let execute = `app.bodyhealth = ${service.bodyhealth};`
         execute += `app.model = ${service.model};`
         execute += `app.enginehealth = ${service.enginehealth};`
